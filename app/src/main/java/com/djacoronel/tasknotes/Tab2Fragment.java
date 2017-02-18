@@ -183,6 +183,7 @@ public class Tab2Fragment extends Fragment implements RecyclerAdapter.MethodCall
         tasks.clear();
 
         if (notesCursor != null && notesCursor.moveToFirst()) {
+            notesCursor.moveToLast();
             do {
                 long id = notesCursor.getLong(notesCursor.getColumnIndex("_id"));
                 String title = notesCursor.getString(notesCursor.getColumnIndex("title"));
@@ -203,7 +204,7 @@ public class Tab2Fragment extends Fragment implements RecyclerAdapter.MethodCall
                             tasks.add(new Task(id, title, text, date, dateFinished, priority, tag));
                 }
 
-            } while (notesCursor.moveToNext());
+            } while (notesCursor.moveToPrevious());
 
             sortTasks();
             adapter.notifyDataSetChanged();
