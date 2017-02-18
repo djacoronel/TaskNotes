@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.djacoronel.tasknotes.MainActivity">
+
+    <item
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_pinned"
+        android:title="pinned_button"
+        android:onClick="showPinned"/>
+
+</menu>

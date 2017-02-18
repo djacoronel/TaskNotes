@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TaskNotes</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_due">Set Due</string>
+    <string name="set_priority">Set Priority</string>
+    <string name="set_tag">Set Tag</string>
+    <string name="task_notes">Task Notes</string>
+    <string name="task_title">Task Title</string>
+</resources>
