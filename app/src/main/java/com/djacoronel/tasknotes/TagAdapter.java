@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagViewHolder>{
 
@@ -83,6 +84,20 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagViewHolder>{
                 });
             }
         }
+    }
+
+    void swap(int firstPosition, int secondPosition, TagViewHolder holder) {
+        Tag tag1 = mTagList.get(firstPosition);
+        Tag tag2 = mTagList.get(secondPosition);
+
+        long id1 = tag1.getId();
+        long id2 = tag2.getId();
+
+        tag1.setId(id2);
+        tag2.setId(id1);
+
+        Collections.swap(mTagList, firstPosition, secondPosition);
+        notifyItemMoved(firstPosition, secondPosition);
     }
 
     interface MethodCaller {

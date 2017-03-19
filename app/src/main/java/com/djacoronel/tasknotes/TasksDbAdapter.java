@@ -191,6 +191,22 @@ public class TasksDbAdapter {
         return mDb.insert(DATABASE_TAGS_TABLE, null, initialValues);
     }
 
+    void updateTag(Tag tag){
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, tag.getName());
+        values.put(KEY_COLOR, tag.getColor());
+        values.put(KEY_PINNED, tag.getPinned());
+
+        String selection = KEY_ROWID + " LIKE ?";
+        String[] selectionArgs = { "" + tag.getId() };
+
+        mDb.update(
+                DATABASE_TAGS_TABLE,
+                values,
+                selection,
+                selectionArgs);
+    }
+
     boolean deleteTag(long rowId) {
         return mDb.delete(DATABASE_TAGS_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
     }

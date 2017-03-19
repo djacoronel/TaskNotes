@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -203,6 +204,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecycler.setAdapter(mAdapter);
         mRecycler.setLayoutManager(layoutManager);
 
+        ItemTouchHelper.Callback callback = new TagsTouchHelper(mAdapter);
+        ItemTouchHelper helper = new ItemTouchHelper(callback);
+        helper.attachToRecyclerView(mRecycler);
+
         final EditText tagName = (EditText) mView.findViewById(R.id.add_tag_text);
         ImageView tagButton = (ImageView) mView.findViewById(R.id.add_tag_button);
 
@@ -226,6 +231,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        for(Tag tag: tags){
+                            mDbAdapter.updateTag(tag);
+                        }
+
                         populateTagMenu();
                     }
                 })
