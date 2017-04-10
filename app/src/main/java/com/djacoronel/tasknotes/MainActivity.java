@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tasks));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_done));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.format_list_checks));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.checkbox_marked_circle_outline));
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         TabPagerAdapter adapter = new TabPagerAdapter(getFragmentManager(), tabLayout.getTabCount());

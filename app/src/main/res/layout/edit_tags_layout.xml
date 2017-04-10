@@ -18,10 +18,13 @@
         android:padding="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
         android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/add_tag_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,9 +32,10 @@
 
         <ImageView
             android:id="@+id/add_tag_button"
+            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add"/>
+            android:src="@drawable/plus_circle"/>
 
     </LinearLayout>
 
