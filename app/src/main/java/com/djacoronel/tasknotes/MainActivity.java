@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu = mNavView.getMenu();
         menu.removeGroup(R.id.group1);
 
-        menu.add(R.id.group1, Menu.NONE, Menu.NONE, "All Tasks").setIcon(android.R.drawable.btn_star);
+        menu.add(R.id.group1, Menu.NONE, Menu.NONE, "All Tasks").setIcon(R.drawable.tag);
 
         Cursor mCursor = mDbAdapter.fetchTags();
         if (mCursor != null && mCursor.moveToFirst()) {
@@ -129,11 +129,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String color = mCursor.getString(mCursor.getColumnIndex("color"));
                 String pinned = mCursor.getString(mCursor.getColumnIndex("pinned"));
 
-                menu.add(R.id.group1, Menu.NONE, Menu.NONE, name);
+                menu.add(R.id.group1, Menu.NONE, Menu.NONE, name).setIcon(R.drawable.tag_outline);
             } while (mCursor.moveToNext());
         }
 
-        menu.add(R.id.group1, Menu.NONE, Menu.NONE, "Edit Tags").setIcon(R.drawable.ic_add);
+        menu.add(R.id.group1, Menu.NONE, Menu.NONE, "Edit Tags").setIcon(R.drawable.tag_plus);
     }
 
     @Override
